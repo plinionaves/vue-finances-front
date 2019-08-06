@@ -1,0 +1,12 @@
+version: '3.4'
+
+services:
+  web:
+    build: .
+    ports:
+      - "8080:8080"
+    command:
+      npm run serve
+    volumes:
+      - .:/usr/app
+      - /usr/app/node_modules
