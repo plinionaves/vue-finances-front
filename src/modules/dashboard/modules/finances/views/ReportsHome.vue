@@ -113,10 +113,10 @@ export default {
         keyToGroup: 'type',
         keyOfValue: 'amount',
         aliases: { CREDIT: 'Receitas', DEBIT: 'Despesas' },
-        backgroundColors: [
-          this.$vuetify.theme.error,
-          this.$vuetify.theme.primary
-        ]
+        backgroundColors: {
+          CREDIT: this.$vuetify.theme.primary,
+          DEBIT: this.$vuetify.theme.error
+        }
       }))
 
       this.updateOrCreateChart('chartCategoryExpenses', generateChartConfigs({

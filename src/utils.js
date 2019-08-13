@@ -91,11 +91,12 @@ const generateChartData = ({ items, keyToGroup, keyOfValue, aliases, type, backg
 
   switch (type) {
     case 'bar':
+      const aliasesKeys = Object.keys(aliases)
       return {
         datasets: labels.map((label, index) => ({
           label: `${label}: ${currencyFormatter().format(response[label])}`,
           data: [response[label] >= 0 ? response[label] : -response[label]],
-          backgroundColor: backgroundColors[index],
+          backgroundColor: backgroundColors[aliasesKeys[index]] || backgroundColors[index],
           borderWidth: 0
         }))
       }
