@@ -1,4 +1,4 @@
-FROM node:10.15.3-alpine AS dev-stage
+FROM node:14.18.2-alpine3.14 AS dev-stage
 
 WORKDIR /usr/app
 
@@ -6,7 +6,7 @@ COPY package*.json ./
 
 RUN npm i
 
-COPY . .
+COPY --chown=node:node . .
 
 
 FROM dev-stage AS build-stage
